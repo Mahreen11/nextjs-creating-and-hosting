@@ -6,6 +6,13 @@ export interface Product {
     price: number;
 }
 
+export interface Review {
+    review_id:string;
+    product_id:string;
+    overall:string;
+    comment:string;
+}
+
 export const products: Product[] = [{
     id:'123',
     name:'Hat',
@@ -33,3 +40,30 @@ export const products: Product[] = [{
     description:'Have the best style on your first date',
     price:29,
 }]
+
+export const review: Review[] = [
+    {
+        review_id:'1',
+        product_id:'098',
+        overall:'excellent',
+        comment:'I liked it very much!',
+    },
+    {
+        review_id:'2',
+        product_id:'098',
+        overall:'poor',
+        comment:'Not sure, something off about this product but service was okay.',
+    },
+    {
+        review_id:'3',
+        product_id:'987',
+        overall:'average',
+        comment:'Amazing product, takes too long to deliver',
+    },
+    {
+        review_id:'3',
+        product_id:'876',
+        overall:'excellent',
+        comment:'Highly Recommended',
+    }
+]

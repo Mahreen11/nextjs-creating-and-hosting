@@ -1,13 +1,14 @@
 import { NextRequest } from 'next/server';
-import { connectToDb } from '@/app/api/db';
+import { connectToDb } from '@/app/api/db'; 
 import { Db } from 'mongodb';
+import { products } from '@/app/product-data';
 
 type shoppingcart = Record<string,string[]>
-const carts:shoppingcart = {
-    '1':['123','234'],
-    '2':['234','345'],
-    '3':['345']
-}
+// const carts:shoppingcart = {
+//     '1':['098','987'],
+//     '2':['123','234'],
+//     '3':['345']
+// }
 type Params ={
     id:string;
 }
@@ -18,7 +19,8 @@ export async function GET(request:NextRequest,{ params }:{ params : Params}){
 
     const userId = params.id;
     const userCart = await db.collection('carts').findOne({ userId });
-
+    //const productIds = carts[userId];
+    //const cartProducts = productIds.map(id => products.find(p => p.id === id));
     if(!userCart){
         return new Response(JSON.stringify([]),{
             status:200,

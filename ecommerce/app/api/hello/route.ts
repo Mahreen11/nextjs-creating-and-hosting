@@ -1,9 +1,8 @@
 export async function GET() {
 
-    return new Response(JSON.stringify({message:'Hello from Next.js route handler'}),{
-        status:200,
+    return new Response(JSON.stringify({message:'Hello'}),{
+        status: 200,
     });
-
 
 }
 //client asks and GET returns data unlike pages which returns rendered react components
