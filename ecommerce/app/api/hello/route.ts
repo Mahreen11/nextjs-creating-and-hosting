@@ -1,6 +1,9 @@
 export async function GET() {
 
-    return new Response(JSON.stringify({message:'Hello'}),{
+        console.log("MongoDB User:", process.env.MONGODB_USER);
+        console.log("MongoDB Password:", process.env.MONGODB_PASSWORD);
+    
+    return new Response(JSON.stringify({user: process.env.MONGODB_USER}),{
         status: 200,
     });
 
