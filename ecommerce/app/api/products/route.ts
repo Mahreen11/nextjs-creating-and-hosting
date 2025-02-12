@@ -1,6 +1,6 @@
 //import { products } from '@/app/product-data';
 //load them from a database
-import { connectToDb } from "../../db";
+import { connectToDb } from "../db";
 
 export async function GET(){
     const { db } =  await connectToDb(); 
