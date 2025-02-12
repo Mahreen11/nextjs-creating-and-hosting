@@ -90,3 +90,18 @@ use('ecommerce-nextjs');
 //         comment:'Highly Recommended',
 //     }
 // ]) ;
+
+// db.getCollection('carts').find().forEach((doc)=>{
+//     const updatedCartItems = doc.cartIds.map((pid)=>({
+//         pid,
+//         quantity:1
+//     }))
+
+//     db.getCollection('carts').updateOne(
+//         {_id:doc._id},
+//         {$set:{ cartItems: updatedCartItems },$unset:{ cartIds:""}}
+//     )
+// });
+db.getCollection('carts').find().pretty();
+//db.getCollection('products').find().pretty();
+

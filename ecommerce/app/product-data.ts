@@ -12,6 +12,16 @@ export interface Review {
     overall:string;
     comment:string;
 }
+export interface CartItem {
+    pid:string,
+    quantity:number,
+}
+export interface Cart{
+
+        userId:string,
+        cartItems: CartItem[];
+   
+}
 
 export const products: Product[] = [{
     id:'123',
