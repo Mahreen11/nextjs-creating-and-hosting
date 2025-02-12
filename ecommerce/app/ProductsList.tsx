@@ -15,7 +15,12 @@ export default function ProductsList({ products,initialCartProducts = [] }:{ pro
 
     async function fetchCart(){
         try{
-            const response = await fetch(process.env.NEXT_PUBLIC_SITE_URL+'/api/users/2/cart/details');
+            const response = await fetch(process.env.NEXT_PUBLIC_SITE_URL+'/api/users/2/cart/details',{
+                method:"GET",
+                headers:{
+                    'Content-Type':'application/json',
+                }
+            });
             if (!response.ok) {
                 console.error('Error fetching cart data');
                 return;
@@ -122,6 +127,7 @@ export default function ProductsList({ products,initialCartProducts = [] }:{ pro
                 <Image src={'/'+product.imageUrl} className="object-cover w-full rounded-md h-72 xl:h-80" alt="Prodcut Image" width={150} height = {150} />    
                     <h4 className="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200">{product.name}</h4>
                     <p className="text-blue-500">${product.price}</p>  
+                </Link>
                     <button className="flex items-center justify-center w-full px-2 py-2 mt-4 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-800 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700" onClick={async (e)=> {
                             e.preventDefault();
                             addToCart(product.id,1)
@@ -138,7 +144,7 @@ export default function ProductsList({ products,initialCartProducts = [] }:{ pro
                             await removeFromCart(product.id,1)
                             }
                             }>-</button>
-                </Link>
+                
                 </div>           
             ))}  
             </div>
